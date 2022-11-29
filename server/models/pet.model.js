@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { type } = require('os');
+
 
 const schemaPet = new mongoose.Schema({
   petName:{
@@ -16,7 +16,8 @@ const schemaPet = new mongoose.Schema({
     require:[true,"da una breve descripcion de la mascota"],
     minlength:[3,'debe contar con almenos 3 caracteres']
   },
-  petVacunas:[
-    type:String
-  ]
+  petVacunas:{
+    0:{type:Boolean},
+    1:{type:Boolean}
+  }
 })
