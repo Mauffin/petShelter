@@ -19,5 +19,23 @@ const schemaPet = new mongoose.Schema({
   petVacunas:{
     0:{type:Boolean},
     1:{type:Boolean}
+  },
+  petImage:{
+    fileName: {
+      type: String,
+      required: true,
+    },
+    file: {
+      data: Buffer,
+      contentType: String,
+    },
+    uploadTime: {
+      type: Date,
+      default: Date.now,
+    },
   }
-})
+
+},{timestamps:true,versionKey:false})
+
+const Pet = moongose.model('petshell',schemaPet);
+module.exports = Pet
